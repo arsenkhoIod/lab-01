@@ -2,6 +2,13 @@
 
 #include <gtest/gtest.h>
 
-TEST(Example, EmptyTest) {
-    EXPECT_TRUE(true);
+//TEST(Example, EmptyTest) {
+//    EXPECT_TRUE(true);
+//}
+
+TEST(test_avg, test_avg_cast){
+
 }
+
+
+

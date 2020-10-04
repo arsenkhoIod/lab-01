@@ -1,8 +1,6 @@
 // Copyright 2018 Your Name <your_email>
-#include <header.hpp>
-#include <fstream>
-#include <iostream>
-#include <any>
+
+#include <cast.h>
 using namespace nlohmann;
 using namespace std;
 
@@ -53,7 +51,7 @@ auto get_avg(const json& j) -> std::any {
   else if (j.is_string())
     return j.get<std::string>();
   else if (j.is_number_float())
-    return j.get<double>();
+    return j.get<float>();
   else
     return j.get<std::size_t>();
 }
@@ -72,45 +70,7 @@ void from_json(const json& j, Student& s) {
   s.Debt = get_debt(j.at("debt"));
 }
 
-void cast_group(any g)
-{
-  if(g.type()==typeid(size_t)){
-    cout<<"| "<<any_cast<size_t>(g)<<" ";
-  }else{
-    cout<<"| "<<any_cast<string>(g);
-  }
-}
 
-void cast_avg(any a)
-{
-  if(a.type()==typeid(size_t)){
-    cout<<"| "<<any_cast<size_t>(a);
-  }else if(a.type()==typeid(string)){
-    cout<<"| "<<any_cast<string>(a);
-  }else if(a.type()==typeid(double)){
-    cout<<"| "<<any_cast<double>(a);
-  }
-}
-
-
-void cast_debt(any d)
-{
-  if(d.type()==typeid(nullptr)){
-    cout<<"| null";
-  }else if(d.type()==typeid(string)){
-    cout<<"| "<<any_cast<string>(d);
-  }else if(d.type()==typeid(vector<string>)){
-    auto debts=any_cast<vector<string>>(d);
-    if(debts.size() > 1)
-    {
-      cout <<"| "<< debts.size() << " items";
-    }
-    else
-    {
-      cout <<"| "<< debts[0].data();
-    }
-  }
-}
 int main(){
   json j;
   ifstream file;
@@ -151,31 +111,31 @@ int main(){
   cout<<"|---------------|--------|------|---------------|"<<endl;
   auto it=students.begin();
   cout<<"| "<<it->Name<<"   ";
-  cast_group(it->Group);
+  cout<<cast_group(it->Group);
   cout<<"\t\t ";
-  cast_avg(it->Avg);
+  cout<<cast_avg(it->Avg);
   cout<<" ";
-  cast_debt(it->Debt);
+  cout<<cast_debt(it->Debt);
   cout<<"\t\t\t|";
   cout << endl;
   cout<<"|---------------|--------|------|---------------|"<<endl;
   it++;
   cout<<"| "<<it->Name<<"  ";
-  cast_group(it->Group);
+  cout<<cast_group(it->Group);
   cout<<"\t ";
-  cast_avg(it->Avg);
+  cout<<cast_avg(it->Avg);
   cout<<"\t";
-  cast_debt(it->Debt);
+  cout<<cast_debt(it->Debt);
   cout<<"\t\t\t|";
   cout << endl;
   cout<<"|---------------|--------|------|---------------|"<<endl;
   it++;
   cout<<"| "<<it->Name<<" ";
-  cast_group(it->Group);
+  cout<<cast_group(it->Group);
   cout<<" ";
-  cast_avg(it->Avg);
+  cout<<cast_avg(it->Avg);
   cout<<" ";
-  cast_debt(it->Debt);
+  cout<<cast_debt(it->Debt);
   cout<<"\t\t|";
   cout << endl;
   cout<<"|---------------|--------|------|---------------|"<<endl;

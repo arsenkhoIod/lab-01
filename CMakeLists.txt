@@ -29,7 +29,7 @@ string(APPEND CMAKE_CXX_FLAGS " -Wall -Werror")
 hunter_add_package(nlohmann_json)
 find_package(nlohmann_json CONFIG REQUIRED)
 
-add_executable(json sources/source.cpp)
+add_executable(json sources/source.cpp sources/cast.cpp include/cast.h)
 target_link_libraries(json PUBLIC nlohmann_json::nlohmann_json)
 
 hunter_add_package(GTest)
@@ -39,12 +39,12 @@ find_package(GTest CONFIG REQUIRED)
 add_library(source STATIC
         # enum your files and delete this comment
         ${CMAKE_CURRENT_SOURCE_DIR}/sources/source.cpp
-        )
+        sources/cast.cpp include/cast.h)
 target_link_libraries(source PUBLIC nlohmann_json::nlohmann_json)
 add_executable(tests
         # TODO: enum your files and delete this comment
         ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
-        )
+        sources/cast.cpp include/cast.h)
 
 # TODO: change template word to project name and delete this comment
 target_include_directories(json

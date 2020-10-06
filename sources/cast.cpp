@@ -3,45 +3,44 @@
 //
 #include <cast.h>
 
-using namespace nlohmann;
-using namespace std;
+//using namespace nlohmann;
+//using namespace std;
 
-string cast_group(any g)
+std::string cast_group(std::any g)
 {
   if (g.type() == typeid(size_t)){
-    return "| "+to_string(any_cast<size_t>(g))+" ";
+    return "| "+std::to_string(std::any_cast<size_t>(g))+" ";
   }else{
-    return "| "+any_cast<string>(g);
+    return "| "+std::any_cast<std::string>(g);
   }
 }
 
-string cast_avg(any a)
+std::string cast_avg(std::any a)
 {
   if (a.type() == typeid(size_t)){
-    return "| "+to_string(any_cast<size_t>(a));
-  }else if (a.type() == typeid(string)){
-    return "| "+any_cast<string>(a);
+    return "| "+std::to_string(std::any_cast<size_t>(a));
+  }else if (a.type() == typeid(std::string)){
+    return "| "+std::any_cast<std::string>(a);
   }else if (a.type() == typeid(float)){
-    return "| "+to_string(any_cast<float>(a));
+    return "| "+std::to_string(std::any_cast<float>(a));
   }
   return "";
 }
 
 
-string cast_debt(any d)
+std::string cast_debt(std::any d)
 {
   if (d.type() == typeid(nullptr)){
     return "| null";
-  }else if (d.type() == typeid(string)){
-    return "| "+any_cast<string>(d);
-  }else if (d.type() == typeid(vector<string>)){
-    auto debts = any_cast<vector<string>>(d);
+  }else if (d.type() == typeid(std::string)){
+    return "| "+std::any_cast<std::string>(d);
+  }else if (d.type() == typeid(std::vector<std::string>)){
+    auto debts = std::any_cast<std::vector<std::string>>(d);
     if (debts.size() > 1)
     {
-      return "| "+to_string(debts.size())+ " items";
-    }else
-    {
-      string s = "| ";
+      return "| "+std::to_string(debts.size())+" items";
+    }else{
+      std::string s = "| ";
       return s+debts[0].data();
     }
   }

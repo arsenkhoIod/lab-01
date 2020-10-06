@@ -1,17 +1,17 @@
-// Copyright 2018 Your Name <your_email>
+// Copyright 2020 arsenkhoIod
 
 #include <cast.h>
-using namespace nlohmann;
-using namespace std;
+//using namespace nlohmann;
+//using namespace std;
 
 
 
 
 struct Student {
-  string Name;
-  any Group;
-  any Avg;
-  any Debt;
+  std::string Name;
+  std::any Group;
+  std::any Avg;
+  std::any Debt;
 };
 /*
 void to_debt(const json& j,vector<string>& d ){
@@ -19,7 +19,6 @@ void to_debt(const json& j,vector<string>& d ){
   for (auto const& debt : j) {
     d.push_back(debt);
   }
-
 }
 
 void from_json(const json& j, Student& s) {
@@ -27,15 +26,13 @@ void from_json(const json& j, Student& s) {
   j.at("group").get_to(s.Group);
   j.at("avg").get_to(s.Avg);
   to_debt(j.at("debt"), s.Debt);
-
-
 }*/
 
-auto get_name(const json& j) -> std::string {
+auto get_name(const nlohmann::json& j) -> std::string {
   return j.get<std::string>();
 }
 
-auto get_debt(const json& j) -> std::any {
+auto get_debt(const nlohmann::json& j) -> std::any {
   if (j.is_null())
     return nullptr;
   else if (j.is_string())
@@ -44,7 +41,7 @@ auto get_debt(const json& j) -> std::any {
     return j.get<std::vector<std::string> >();
 }
 
-auto get_avg(const json& j) -> std::any {
+auto get_avg(const nlohmann::json& j) -> std::any {
   if (j.is_null())
     return nullptr;
   else if (j.is_string())
@@ -55,14 +52,14 @@ auto get_avg(const json& j) -> std::any {
     return j.get<std::size_t>();
 }
 
-auto get_group(const json& j) -> std::any {
+auto get_group(const nlohmann::json& j) -> std::any {
   if (j.is_string())
     return j.get<std::string>();
   else
     return j.get<std::size_t>();
 }
 
-void from_json(const json& j, Student& s) {
+void from_json(const nlohmann::json& j, Student& s) {
   s.Name = get_name(j.at("name"));
   s.Group = get_group(j.at("group"));
   s.Avg = get_avg(j.at("avg"));
@@ -71,12 +68,12 @@ void from_json(const json& j, Student& s) {
 
 
 int main(){
-  json j;
-  ifstream file;
+  nlohmann::json j;
+  std::ifstream file;
   file.open("students.json");
   file >> j;
   file.close();
-  vector<Student> students;
+  std::vector<Student> students;
   for (auto const& student : j.at("items")) {
     Student st;
     nlohmann::from_json(student, st);
@@ -104,39 +101,39 @@ int main(){
   cout<<"| "<<students[0].Name<<"\t| "<<students[0].Group<<students[0].Avg<<"\t| "<<students[0].Debt<<"|"<<endl;
   cout<<"|---------------|--------|------|---------------|"<<endl;
   */
-  cout << endl;
-  cout << "| name          | group  | avg      | debt          |" << endl;
-  cout << "|---------------|--------|----------|---------------|" << endl;
+  std::cout << std::endl;
+  std::cout << "| name          | group  | avg      | debt          |" << std::endl;
+  std::cout << "|---------------|--------|----------|---------------|" << std::endl;
   auto it = students.begin();
-  cout << "| " << it->Name << "   ";
-  cout << cast_group(it->Group);
-  cout << "\t\t ";
-  cout << cast_avg(it->Avg);
-  cout << " \t";
-  cout << cast_debt(it->Debt);
-  cout << "\t\t\t|";
-  cout << endl;
-  cout << "|---------------|--------|----------|---------------|" << endl;
+  std::cout << "| " << it->Name << "   ";
+  std::cout << cast_group(it->Group);
+  std::cout << "\t\t ";
+  std::cout << cast_avg(it->Avg);
+  std::cout << " \t";
+  std::cout << cast_debt(it->Debt);
+  std::cout << "\t\t\t|";
+  std::cout << std::endl;
+  std::cout << "|---------------|--------|----------|---------------|" << std::endl;
   it++;
-  cout << "| " << it->Name << "  ";
-  cout << cast_group(it->Group);
-  cout << "\t ";
-  cout << cast_avg(it->Avg);
-  cout << "\t\t";
-  cout << cast_debt(it->Debt);
-  cout << "\t\t\t|";
-  cout << endl;
-  cout << "|---------------|--------|----------|---------------|" << endl;
+  std::cout << "| " << it->Name << "  ";
+  std::cout << cast_group(it->Group);
+  std::cout << "\t ";
+  std::cout << cast_avg(it->Avg);
+  std::cout << "\t\t";
+  std::cout << cast_debt(it->Debt);
+  std::cout << "\t\t\t|";
+  std::cout << std::endl;
+  std::cout << "|---------------|--------|----------|---------------|" << std::endl;
   it++;
-  cout << "| " << it->Name << " ";
-  cout << cast_group(it->Group);
-  cout << " ";
-  cout << cast_avg(it->Avg);
-  cout << " ";
-  cout << cast_debt(it->Debt);
-  cout << "\t\t|";
-  cout << endl;
-  cout << "|---------------|--------|----------|---------------|" << endl;
+  std::cout << "| " << it->Name << " ";
+  std::cout << cast_group(it->Group);
+  std::cout << " ";
+  std::cout << cast_avg(it->Avg);
+  std::cout << " ";
+  std::cout << cast_debt(it->Debt);
+  std::cout << "\t\t|";
+  std::cout << std::endl;
+  std::cout << "|---------------|--------|----------|---------------|" << std::endl;
   it++;
   students.end();
   return 0;

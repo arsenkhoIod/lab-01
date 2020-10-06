@@ -39,8 +39,7 @@ string cast_debt(any d)
     if (debts.size() > 1)
     {
       return "| "+to_string(debts.size())+ " items";
-    }
-    else
+    }else
     {
       string s = "| ";
       return s+debts[0].data();

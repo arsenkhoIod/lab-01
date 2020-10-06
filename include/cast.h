@@ -13,4 +13,3 @@
 std::string cast_group(std::any g);
 std::string cast_avg(std::any a);
 std::string cast_debt(std::any d);
-

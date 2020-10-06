@@ -116,7 +116,7 @@ int main(){
   cout << cast_debt(it->Debt);
   cout << "\t\t\t|";
   cout << endl;
-  cout << "|---------------|--------|----------|---------------|"<<endl;
+  cout << "|---------------|--------|----------|---------------|" << endl;
   it++;
   cout << "| " << it->Name << "  ";
   cout << cast_group(it->Group);

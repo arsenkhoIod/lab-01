@@ -35,8 +35,3 @@ TEST(test_group, test_group_cast_1){
   std::any a{std::string("IU8-31")};
   EXPECT_EQ(cast_group(a), "| IU8-31");
 }
-
-/*TEST(test_avg, test_avg_cast){
-  std::any a(size_t(4));
-  EXPECT_EQ(cast_avg(a),"| 4");
-}*/

@@ -102,8 +102,10 @@ int main(){
   cout<<"|---------------|--------|------|---------------|"<<endl;
   */
   std::cout << std::endl;
-  std::cout << "| name          | group  | avg      | debt          |" << std::endl;
-  std::cout << "|---------------|--------|----------|---------------|" << std::endl;
+  std::cout << "| name          | group  ";
+  std::cout <<"| avg      | debt          |"<< std::endl;
+  std::cout << "|---------------|--------";
+  std::cout <<"|----------|---------------|"<< std::endl;
   auto it = students.begin();
   std::cout << "| " << it->Name << "   ";
   std::cout << cast_group(it->Group);
@@ -113,7 +115,8 @@ int main(){
   std::cout << cast_debt(it->Debt);
   std::cout << "\t\t\t|";
   std::cout << std::endl;
-  std::cout << "|---------------|--------|----------|---------------|" << std::endl;
+  std::cout << "|---------------|--------";
+  std::cout <<"|----------|---------------|"<< std::endl;
   it++;
   std::cout << "| " << it->Name << "  ";
   std::cout << cast_group(it->Group);
@@ -123,7 +126,8 @@ int main(){
   std::cout << cast_debt(it->Debt);
   std::cout << "\t\t\t|";
   std::cout << std::endl;
-  std::cout << "|---------------|--------|----------|---------------|" << std::endl;
+  std::cout << "|---------------|--------";
+  std::cout <<"|----------|---------------|"<< std::endl;
   it++;
   std::cout << "| " << it->Name << " ";
   std::cout << cast_group(it->Group);
@@ -133,7 +137,8 @@ int main(){
   std::cout << cast_debt(it->Debt);
   std::cout << "\t\t|";
   std::cout << std::endl;
-  std::cout << "|---------------|--------|----------|---------------|" << std::endl;
+  std::cout << "|---------------|--------";
+  std::cout <<"|----------|---------------|"<< std::endl;
   it++;
   students.end();
   return 0;

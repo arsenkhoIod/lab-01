@@ -1,4 +1,4 @@
-//
+// Copyright 2020 arsenkhoIod
 // Created by arseny on 04.10.2020.
 //
 #include <cast.h>

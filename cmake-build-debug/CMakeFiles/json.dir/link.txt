@@ -1,0 +1,1 @@
+/usr/bin/c++   -Wall -Werror -g   CMakeFiles/json.dir/sources/source.cpp.o CMakeFiles/json.dir/sources/cast.cpp.o  -o json 

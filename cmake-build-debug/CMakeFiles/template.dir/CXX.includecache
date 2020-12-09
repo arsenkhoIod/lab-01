@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/arseny/CLionProjects/lab-01/sources/source.cpp
+nlohmann/json.hpp
+-
+fstream
+-
+iostream
+-
+any
+-
+gtest/gtest.h
+-
+

@@ -1,0 +1,1 @@
+/usr/bin/c++   -Wall -Werror -g   CMakeFiles/tests.dir/tests/test.cpp.o CMakeFiles/tests.dir/sources/cast.cpp.o  -o tests  /home/arseny/.hunter/_Base/9a3594a/2c824f9/48401e9/Install/lib/libgtest_maind.a libsourced.a /home/arseny/.hunter/_Base/9a3594a/2c824f9/48401e9/Install/lib/libgtestd.a -pthread 
